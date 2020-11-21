@@ -4,6 +4,9 @@ services:
     build:
       context: ./php-fpm
       dockerfile: Dockerfile-${PHP_VERSION}
+      args:
+        - GID=${HOST_GID}
+        - UID=${HOST_UID}
     volumes:
       - ${PROJECT_PATH}:/var/www
     expose:
